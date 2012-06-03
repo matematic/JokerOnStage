@@ -1,0 +1,479 @@
+﻿/* DEFAULTS
+----------------------------------------------------------*/
+
+body   
+{
+    background: #b6b7bc;
+    font-size: .80em;
+    font-family: 'eurofurenceregular', "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    color: #696969;
+}
+
+a:link, a:visited
+{
+    /*color: #034af3;*/
+}
+
+a:hover
+{
+    /*color: #1d60ff;*/
+    text-decoration: none;
+}
+
+a:active
+{
+    /*color: #034af3;*/
+}
+
+p
+{
+    margin-bottom: 10px;
+    line-height: 1.6em;
+}
+
+
+
+
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+.page
+{
+    width: 960px;
+    background-color: #fff;
+    margin: 20px auto 0px auto;
+    border: 1px solid #496077;
+}
+
+header
+{
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    background: #4b6c9e;
+    width: 100%;
+    height: 90px;
+}
+
+header h1
+{
+    font-weight: 700;
+    margin: 0px;
+    padding: 0px 0px 0px 20px;
+    color: #f9f9f9;
+    border: none;
+    line-height: 2em;
+    font-size: 2em;
+}
+
+
+
+
+#content {
+float: left;
+width: 500px;
+margin-left: 40px;
+min-height:500px;
+}
+
+
+#menuLeft {
+float: left;
+padding: 5px;
+width: 180px;
+}
+
+#menuRight {
+float: right;
+padding: 5px;
+width: 180px;
+}
+
+
+
+.leftCol
+{
+    padding: 6px 0px;
+    margin: 12px 8px 8px 8px;
+    width: 200px;
+    min-height: 200px;
+}
+
+footer
+{
+	width: 960px;
+    /*color: #4e5766;*/
+    margin: 0px auto;
+    text-align: left;
+    line-height: normal;
+    clear: both;
+}
+
+#footer-area 
+{
+	background: #4b6c9e;
+	color: #FFF;
+	font-size: 90%;
+	overflow: hidden;
+}
+
+#footer-area a
+{
+	color: #FFF;
+}
+
+#footer-area a:hover
+{
+	color: Yellow;
+}
+
+.footer-segment 
+{
+	float: left;
+	margin-right: 20px;
+	margin-left: 20px;
+	width: 190px;
+}
+
+footer aside h4 
+{
+	color: #FFF;
+	font-size: 16px;
+	line-height: 1.5em;
+	padding-left: 25px;
+}
+
+/* TAB MENU   
+----------------------------------------------------------*/
+
+nav
+{
+    background-color:#3a4f63;
+ 	position:relative;
+	height:27px; /* ???????????? */
+	background-color:#3a4f63;
+	padding: 4px 0px 4px 8px;
+}
+
+nav ul
+{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+}
+
+nav li
+{
+    float: left;
+}
+
+nav ul li a, div.menu ul li a:visited
+{
+    background-color: #465c71;
+    border: 1px #4e667d solid;
+    color: #dde4ec;
+    display: block;
+    line-height: 1.35em;
+    padding: 4px 20px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+nav ul li a:hover
+{
+    background-color: #bfcbd6;
+    color: #465c71;
+    text-decoration: none;
+}
+
+nav ul li a:active
+{
+    background-color: #465c71;
+    color: #cfdbe6;
+    text-decoration: none;
+}
+
+/* FORM ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset
+{
+    margin: 1em 0px;
+    padding: 1em;
+    border: 1px solid #ccc;
+}
+
+fieldset p 
+{
+    margin: 2px 12px 10px 10px;
+}
+
+fieldset.login label, fieldset.register label, fieldset.changePassword label
+{
+    display: block;
+}
+
+fieldset label.inline 
+{
+    display: inline;
+}
+
+legend 
+{
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 2px 4px 8px 4px;
+}
+
+input.textEntry 
+{
+    width: 135px;
+    border: 1px solid #ccc;
+}
+
+input.passwordEntry 
+{
+    width: 135px;
+    border: 1px solid #ccc;
+}
+
+div.accountInfo
+{
+    width: 190px;
+}
+
+/* MISC  
+----------------------------------------------------------*/
+
+.clear
+{
+    clear: both;
+}
+
+.title
+{
+	position: relative;
+    float: left;
+    width: 170px;
+    height: 50px;
+}
+
+.joker
+{
+    position: absolute;
+    left:170px;
+}
+
+.loginDisplay
+{
+    font-size: 1.1em;
+    display: block;
+    text-align: right;
+    padding: 10px;
+    color: White;
+}
+
+.loginDisplay a:link
+{
+    color: white;
+}
+
+.loginDisplay a:visited
+{
+    color: white;
+}
+
+.loginDisplay a:hover
+{
+    color: white;
+}
+
+.failureNotification
+{
+    font-size: 1.2em;
+    color: Red;
+}
+
+.bold
+{
+    font-weight: bold;
+}
+
+.submitButton
+{
+    text-align: right;
+    padding-right: 10px;
+}
+
+
+
+/* ICONS  
+----------------------------------------------------------*/
+
+#divFaceBook, #divTwitter, #divMySpace
+{
+	position:absolute;
+	padding-right:10px;
+	padding-top:3px;
+	bottom:-28px;
+	z-index:50;
+}
+
+#divFaceBook
+{
+	right:0px;
+}
+#divTwitter
+{
+	right:50px;
+}
+#divMySpace
+{
+	right:100px;
+}
+
+#divSvgHtml5, #divSvgCss3, #divJQuery
+{
+	float:right;
+	padding-right:10px;
+	padding-top:3px;
+}
+
+/* IHaveAJoke, Search 
+----------------------------------------------------------*/
+
+div.wideContainer
+{
+    width: 400px;
+}
+
+
+textarea 
+{
+      width: 500px;
+      height: 120px;
+      border: 1px solid #ccc;
+}
+
+#ddlCategories 
+{
+	width: 120px;
+	border: 1px solid #ccc;
+}
+
+#divSearch
+{
+	padding-left: 15px;
+}
+
+/*-----------------------  MENUS ----------------------------*/
+
+#menuLeft h3, #menuRight h3
+{
+	margin-bottom: 0px;
+	background-color:#5f5f5f;
+	color:White;
+	padding:5px 0px 5px 10px;
+}
+
+#menuLeft ul, #menuRight ul   
+{
+	list-style: none; 
+	margin: 0; 
+	padding: 0;
+	/*
+	border:1px solid;
+	/*
+border-radius:5px;
+-moz-border-radius:5px; /* Firefox 3.6 and earlier */
+}
+
+#menuLeft ul li span, #menuRight ul li span  
+{
+	display:block; 
+	text-decoration:none; 
+	color:#000000; 
+	background-color:#e9e9e9; 
+	line-height:30px;
+	/* border-bottom-style:solid; */ 
+	border-bottom-width:1px; 
+	border-bottom-color:#CCCCCC; 
+	padding-left:5px; 
+	padding-right:5px;
+	margin:2px 0px 2px 0px;
+}
+
+#menuLeft ul li a, #menuRight ul li a 
+{
+	display:block; 
+	text-decoration:none; 
+	color:#000000; 
+	background-color:#e9e9e9; 
+	line-height:30px;
+	/* border-bottom-style:solid; */ 
+	border-bottom-width:1px; 
+	border-bottom-color:#CCCCCC; 
+	padding-left:5px; 
+	padding-right:5px;
+	margin:2px 0px 2px 0px;
+	cursor:pointer; 
+}
+
+#menuLeft ul li a:hover, #menuRight ul li a:hover  
+{
+	color:#FFFFFF; 
+	background-image:url(../images/hover.png); 
+	background-repeat:repeat-x; 
+}
+#menuLeft ul li a strong, #menuRight ul li a strong  
+{
+	margin-right:10px; 
+}
+
+
+
+
+
+/*----------------gvJokes--------------------*/
+
+.gvJokes {   
+    width: 100%;   
+    background-color: #fff;   
+    margin: 5px 0 10px 0;   
+    border: solid 0px #525252;
+    border-collapse:collapse;  
+    font-size:1.1em;
+}  
+.gvJokes td {   
+    padding: 2px;   
+    border: solid 0px #c1c1c1;  
+    color: #717171;   
+}  
+ 
+
+/*------------------tblJokes---------------------------*/
+#tblJoke
+{
+	width:100%;
+}
+
+#tblJokeLeftTd
+{
+	width:99%;
+	font-size:1.2em;
+	color: #006;
+}
+
+.sectionTitle
+{
+	font-size:1.3em;
+	color: #006;
+	margin:20px 0 10px 0;
+	background: #e9e9e9;
+}
+
+

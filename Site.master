@@ -1,0 +1,311 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="Site" %>
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head id="Head1" runat="server">
+    <title></title>
+
+
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/Fonts.css" rel="stylesheet" type="text/css" />  
+    <script src="Scripts/JScript.js" type="text/javascript"></script>  
+
+
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body onload="loadLogos();">
+
+    <form id="frmIHaveAJoke" runat="server">
+
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+
+   <div id="container">    
+    <div class="page">
+
+           <header>
+            <div class="title">
+                <h1>
+                    Joker on Stage
+                </h1>
+            </div>
+
+                <div class="joker">
+                    <asp:Image ID="imgJoker" runat="server" ImageUrl="~/Images/Joker.png" 
+                        Height="50px" Width="50px" />
+            </div>
+
+            <div class="loginDisplay">
+                <asp:Label ID="lblUserName" runat="server" Text="Label"></asp:Label>
+                <asp:LinkButton ID="lnkUserName" runat="server" onclick="lnkUserName_Click"></asp:LinkButton>
+                [ <asp:LinkButton ID="lnkLogin" 
+                    runat="server" onclick="lnkLogin_Click">Login</asp:LinkButton> ]
+
+
+            </div>
+               <asp:HyperLink ID="fypFaceBook" runat="server" NavigateUrl="http://www.facebook.com">
+               
+             <div id="divFaceBook">
+                <canvas id="canFaceBook" width="48" height="72"></canvas>
+            </div>              
+               </asp:HyperLink>
+
+               <asp:HyperLink ID="hypTwitter" runat="server" NavigateUrl="http://www.twitter.com">
+            <div id="divTwitter">
+                <canvas id="canTwitter" width="48" height="72"></canvas>	
+            </div>
+            </asp:HyperLink>
+            
+            <asp:HyperLink ID="hypMySpace" runat="server" NavigateUrl="http://www.myspace.com">
+            <div id="divMySpace">
+                <canvas id="canMySpace" width="48" height="72"></canvas>
+            </div>
+        </asp:HyperLink>
+        
+        
+        
+        
+        </header>
+
+
+        
+             <nav>
+<%--                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
+                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
+                    </Items>
+                </asp:Menu>--%>
+            
+            
+
+<ul>
+<li> <asp:LinkButton ID="lnkHome" runat="server" onclick="lnkHome_Click">Home</asp:LinkButton></li>
+<li> <a href="About.aspx">About</a></li>
+</ul>
+
+            
+            
+            
+            </nav>
+
+
+
+
+
+            <section id="main"><!-- #main content and sidebar area -->
+
+
+
+<aside id="menuLeft"><!-- sidebar1 -->
+
+				<h3>Main menu</h3>
+					<ul>
+                        <li><asp:LinkButton ID="lnkNewJoke" runat="server" onclick="lnkNewJoke_Click">I have a joke</asp:LinkButton></li>
+                        <li><asp:LinkButton ID="lnkSearchForFriends" runat="server" onclick="lnkSearchForFriends_Click" >Search for friends</asp:LinkButton></li>
+                        <li><asp:LinkButton ID="lnkFriendshipRequest" runat="server" onclick="lnkFriendshipRequest_Click" >Friendship request</asp:LinkButton></li>
+                        <li><asp:LinkButton ID="lnkAcceptFriendship" runat="server" onclick="lnkAcceptFriendship_Click">Accept friendship</asp:LinkButton></li>
+                        <li><asp:LinkButton ID="lnkDenyFriendship" runat="server" onclick="lnkDenyFriendship_Click">Deny friendship</asp:LinkButton></li>
+                        <li><asp:LinkButton ID="lnkStopFriendship" runat="server" onclick="lnkStopFriendship_Click">End friendship</asp:LinkButton></li>
+                        <li><asp:LinkButton ID="lnkLoginFromMainMenu" runat="server" 
+                                onclick="lnkLoginFromMainMenu_Click">Login</asp:LinkButton></li>
+					</ul>
+
+
+
+       <asp:Panel ID="panCategories" runat="server">
+            	<h3>Categories<br /> <asp:Label runat="server" id="lblFirstNameLastName"></asp:Label></h3>
+
+<ul>
+<asp:Repeater ID="rptCategories" Runat="server" 
+        onitemcommand="rptCategories_ItemCommand" 
+        onitemdatabound="rptCategories_ItemDataBound"  >
+<ItemTemplate>
+<li>
+
+
+            <asp:LinkButton ID="lnkCategory" runat="server" 
+                                CommandArgument='<%# Bind("CategoriesID") %>' Text='<%# Bind("CatNames") %>'></asp:LinkButton>
+</li>
+</ItemTemplate>
+<FooterTemplate>
+ <li>
+ <asp:Label ID="lblEmptyData"
+        Text="No Data To Display" runat="server" Visible="false">
+ </asp:Label>
+ 
+ </li>
+          
+ </FooterTemplate>
+</asp:Repeater>
+</ul>
+
+
+
+
+</asp:Panel>
+					
+<h3>Requested friendships</h3>					
+
+<ul>
+<asp:Repeater ID="rptFriendshipRequests" Runat="server" 
+        onitemcommand="rptFriendshipRequests_ItemCommand" 
+        onitemdatabound="rptFriendshipRequests_ItemDataBound" >
+<ItemTemplate>
+<li>
+            <asp:LinkButton ID="lnkFirstNameLastName" runat="server" CommandName="lnkFirstNameLastName" Text='<%# Bind("FirstNameLastName") %>' CommandArgument='<%# Bind("SelectedUserID") %>' />
+ </li>
+</ItemTemplate>
+<FooterTemplate>
+ <li>
+ <asp:Label ID="lblEmptyData"
+        Text="No Data To Display" runat="server" Visible="false">
+ </asp:Label>
+ 
+ </li>
+          
+ </FooterTemplate>
+</asp:Repeater>
+</ul>
+
+
+
+					
+
+
+				
+
+				
+
+		</aside><!-- end of sidebar1 -->
+
+
+
+
+        <section id="content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+        </section>
+
+
+        <aside id="menuRight"><!-- sidebar2 -->
+
+<h3>Friends</h3>					
+
+<ul>
+<asp:Repeater ID="rptFriends" Runat="server" onitemcommand="rptFriends_ItemCommand" 
+        onitemdatabound="rptFriends_ItemDataBound" >
+<ItemTemplate>
+<li>
+            <asp:LinkButton ID="lnkFriendFirstNameLastName" runat="server" CommandName="lnkFriendFirstNameLastName" Text='<%# Bind("FirstNameLastName") %>' CommandArgument='<%# Bind("SelectedUserID") %>' />
+ </li>
+</ItemTemplate>
+<FooterTemplate>
+ <li>
+ <asp:Label ID="lblEmptyData"
+        Text="No Data To Display" runat="server" Visible="false">
+ </asp:Label>
+ 
+ </li>
+          
+ </FooterTemplate>
+</asp:Repeater>
+</ul>
+				
+				<h3>Links</h3>					
+				<ul>
+						<li><a href="http://www.lotsofjokes.com/">Lots of Jokes</a></li>
+						<li><a href="http://www.a-jokes.com/">The best jokes</a></li>
+					</ul>
+					
+
+
+		</aside><!-- end of sidebar -->
+
+
+</section>
+
+
+
+
+
+
+        <div class="clear">
+        </div>
+
+
+
+
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+ 
+
+
+
+ 
+<footer>
+		<section id="footer-area">
+        	<section id="footer-outer-block">
+					<aside class="footer-segment">
+							<h4>HTML5</h4>
+								<ul>
+                                    <li><a href="http://www.w3schools.com/html5/default.asp">HTML5 Tutorial</a></li>
+									<li><a href="http://en.wikipedia.org/wiki/HTML5">HTML5 - Wikipedia</a></li>
+									<li><a href="http://html5demos.com/">HTML5 Demos and Examples</a></li>
+									<li><a href="http://www.html5rocks.com/en/">HTML5 Rocks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+
+					<aside class="footer-segment">
+							<h4>CSS3</h4>
+								<ul>
+									<li><a href="http://www.css3.info/">All you ever needed to know about CSS3</a></li>
+									<li><a href="http://www.w3schools.com/css3/default.asp">CSS3 Tutorial</a></li>
+									<li><a href="http://css3generator.com/">CSS3 Generator</a></li>
+								</ul>
+					</aside><!-- end of #second footer segment -->
+
+					<aside class="footer-segment">
+							<h4>jQuery</h4>
+								<ul>
+									<li><a href="http://jquery.com/">jQuery: The Write Less, Do More, JavaScript Library</a></li>
+									<li><a href="http://www.w3schools.com/jquery/default.asp">jQuery Tutorial</a></li>
+									<li><a href="http://en.wikipedia.org/wiki/JQuery">jQuery - Wikipedia</a></li>
+								</ul>
+					</aside><!-- end of #third footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Copyright</h4>
+								<ul>
+									<li><a href="mailto:zvirovici@yahoo.com">2012 M. Šimović</a></li>
+								</ul>
+					</aside><!-- end of #third footer segment -->
+					
+					
+                </section><!-- end of footer-outer-block -->
+          </section><!-- end of footer-area -->
+<%--	
+                <div id="divSvgCss3">
+                <canvas id="myCanvasCss3" width="64" height="96"></canvas>
+            </div>
+            <div id="divSvgHtml5">
+                <canvas id="myCanvasHtml5" width="64" height="96"></canvas>	
+            </div>
+            <div id="divJQuery">
+                <canvas id="myCanvasJQuery" width="64" height="96"></canvas>
+            </div>
+--%>
+    </footer>
+
+     </div>
+
+     </form>
+</body>
+</html>
